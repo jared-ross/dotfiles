@@ -4,7 +4,7 @@ set bg=dark
 "if &background == "dark"
     "hi normal guibg=black
 "endif
-set guifont=LetterGothicMono:h18
+set guifont="Deja Vu Sans Mono 8"
 colorscheme solarized
 
 if exists('*HexHighlight()')

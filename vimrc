@@ -122,8 +122,8 @@ set wildmode=longest,list
 set nrformats=
 "set spelllang=en_gb
 " Put swap files in /tmp file
-set backupdir=~/tmp
-set directory=~/tmp
+set backupdir=~/.vimcache
+set directory=~/.vimcache
 if has("autocmd")
   autocmd FileType html,css,scss,ruby,pml,yaml,coffee,vim setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
@@ -441,6 +441,7 @@ let g:solarized_menu=0
 set background=light
 colorscheme solarized
 call togglebg#map("<F5>")
+"colorscheme default
 " EasyMotion {{{2
 let g:EasyMotion_leader_key = ',,'
 
@@ -451,3 +452,6 @@ let g:NERDMenuMode=0
 "  Modelines: {{{1
 " vim: nowrap fdm=marker
 " }}}
+
+set undofile
+set undodir=~/.vimcache
