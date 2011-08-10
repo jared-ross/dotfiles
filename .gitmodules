@@ -72,7 +72,7 @@
 	ignore = dirty
 [submodule "vim/bundle/mac-classic"]
 	path = vim/bundle/mac-classic
-	url = git@github.com:nelstrom/vim-mac-classic-theme.git
+	url = git://github.com/nelstrom/vim-mac-classic-theme.git
 	ignore = dirty
 [submodule "vim/bundle/vim-rake"]
 	path = vim/bundle/vim-rake
@@ -112,7 +112,7 @@
 	ignore = dirty
 [submodule "vim/bundle/textobj-rubyblock"]
 	path = vim/bundle/textobj-rubyblock
-	url = git@github.com:nelstrom/vim-textobj-rubyblock.git
+	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
 	ignore = dirty
 [submodule "vim/bundle/vimwiki"]
 	path = vim/bundle/vimwiki
@@ -148,7 +148,7 @@
 	ignore = dirty
 [submodule "vim/bundle/visual-star-search"]
 	path = vim/bundle/visual-star-search
-	url = git@github.com:nelstrom/vim-visual-star-search.git
+	url = git://github.com/nelstrom/vim-visual-star-search.git
 	ignore = dirty
 [submodule "vim/bundle/space"]
 	path = vim/bundle/space
@@ -172,4 +172,4 @@
 	ignore = dirty
 [submodule "vim/bundle/pml"]
 	path = vim/bundle/pml
-	url = git@github.com:nelstrom/vim-pml.git
+	url = git://github.com/nelstrom/vim-pml.git
