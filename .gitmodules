@@ -173,3 +173,6 @@
 [submodule "vim/bundle/pml"]
 	path = vim/bundle/pml
 	url = git://github.com/nelstrom/vim-pml.git
+[submodule "vim/bundle/zencoding"]
+	path = vim/bundle/zencoding
+	url = https://github.com/vim-scripts/ZenCoding.vim.git

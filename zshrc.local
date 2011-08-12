@@ -235,3 +235,8 @@ fi
 
 alias pacman-install='pacman -Sy'
 alias pacman-search='pacman -Ss'
+
+hash -d drop="/Volumes/NAS01/DropBox"
+hash -d www="/Applications/XAMPP/htdocs/"
+alias mysqlroot='mysql -u root -S /Applications/XAMPP//xamppfiles/var/mysql/mysql.sock'
+alias ctags='/usr/local/bin/ctags'

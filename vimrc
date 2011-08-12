@@ -125,7 +125,7 @@ set nrformats=
 set backupdir=~/.vimcache
 set directory=~/.vimcache
 if has("autocmd")
-  autocmd FileType html,css,scss,ruby,pml,yaml,coffee,vim setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType html,php,css,scss,ruby,pml,yaml,coffee,vim setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd BufNewFile,BufRead ~/projects/sencha/**/*.js setlocal ts=4 sts=4 sw=4 et
   autocmd FileType markdown setlocal wrap linebreak nolist
@@ -455,3 +455,4 @@ let g:NERDMenuMode=0
 
 set undofile
 set undodir=~/.vimcache
+map <F2>    :set insertmode! <CR>
