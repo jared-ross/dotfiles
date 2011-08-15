@@ -126,6 +126,8 @@ set backupdir=~/.vimcache
 set directory=~/.vimcache
 if has("autocmd")
   autocmd FileType html,php,css,scss,ruby,pml,yaml,coffee,vim setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType vim setlocal foldmethod=marker
+  autocmd FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd BufNewFile,BufRead ~/projects/sencha/**/*.js setlocal ts=4 sts=4 sw=4 et
   autocmd FileType markdown setlocal wrap linebreak nolist
