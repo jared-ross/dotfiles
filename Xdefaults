@@ -7,6 +7,7 @@ Xft.hintstyle:  hintslight
 URxvt*scrollstyle:plain
 
 
+URxvt*font:		    	xft:Dejavu Sans Mono:pixelsize=10
 *background:            #002b36
 *foreground:            #657b83
 *fading:                40

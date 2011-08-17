@@ -13,4 +13,4 @@ if [ $? -eq 0 ]; then
     xrandr --output VGA-0 --right-of LVDS
 fi
 
-exec dwm
+exec ssh-agent dwm
