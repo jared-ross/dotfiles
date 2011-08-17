@@ -240,3 +240,4 @@ hash -d drop="/Volumes/NAS01/DropBox"
 hash -d www="/Applications/XAMPP/htdocs/"
 alias mysqlroot='mysql -u root -S /Applications/XAMPP//xamppfiles/var/mysql/mysql.sock'
 alias ctags='/usr/local/bin/ctags'
+source ~/.zshrc.local.local
