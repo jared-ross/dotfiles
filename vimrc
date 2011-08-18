@@ -115,7 +115,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
-set hidden
+"set hidden
 set nojoinspaces
 set listchars=tab:▸\ ,eol:¬
 set wildmode=longest,list
@@ -378,6 +378,9 @@ command! -range=% -nargs=1 Refactor :<line1>,<line2>call Refactor(<args>)
 "   http://got-ravings.blogspot.com/2008/08/vim-pr0n-making-statuslines-that-own.html
 " Always show the status line (even if no split windows)
 set laststatus=2
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 " Mappings for a recovering TextMate user {{{1
 " Indentation {{{2
 nmap <D-[> <<
@@ -437,7 +440,7 @@ let g:space_disable_select_mode=1
 let g:space_no_search = 1
 
 " Solarized {{{2
-let g:solarized_menu=0
+"let g:solarized_menu=0
 set background=light
 colorscheme solarized
 call togglebg#map("<F5>")
