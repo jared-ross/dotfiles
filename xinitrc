@@ -10,7 +10,7 @@ done &
 
 xrandr |grep VGA| grep -q " connected " 
 if [ $? -eq 0 ]; then
-    xrandr --output VGA-0 --right-of LVDS
+    xrandr --output VGA1 --right-of LVDS1
 fi
 
 exec ssh-agent dwm
