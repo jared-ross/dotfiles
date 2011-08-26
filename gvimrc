@@ -1,10 +1,10 @@
 set go-=T
-set bg=dark
+set bg=light
 
 "if &background == "dark"
     "hi normal guibg=black
 "endif
-set guifont="Deja Vu Sans Mono 8"
+set guifont="Deja Vu Sans Mono:h11"
 colorscheme solarized
 
 if exists('*HexHighlight()')
