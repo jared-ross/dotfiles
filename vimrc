@@ -458,6 +458,10 @@ let g:NERDMenuMode=0
 " vim: nowrap fdm=marker
 " }}}
 
-set undofile
-set undodir=~/.vimcache
+if version >= 703
+  set undofile
+  set undodir=~/.vimcache
+endif
+
+" For plebs
 map <F2>    :set insertmode! <CR>
