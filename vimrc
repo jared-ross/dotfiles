@@ -461,5 +461,4 @@ if version >= 703
   set undodir=~/.vimcache
 endif
 
-" For plebs
 map <F2>    :set insertmode! <CR>
