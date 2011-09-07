@@ -15,9 +15,10 @@ Create symlinks:
     ln -s ~/dotfiles/vimrc ~/.vimrc
     ln -s ~/dotfiles/gvimrc ~/.gvimrc
     ln -s ~/dotfiles/vim ~/.vim
-    ln -s ~/dotfiles/ctags ~/.ctags
     ln -s ~/dotfiles/zshrc ~/.zshrc
     ln -s ~/dotfiles/zshrc.local ~/.zshrc.local
+    ln -s ~/dotfiles/fonts.conf ~/.fonts.conf
+    ln -s ~/dotfiles/ctags ~/.ctags
     ln -s ~/dotfiles/irbrc ~/.irbrc
     ln -s ~/dotfiles/jshintrc ~/.jshintrc
 
