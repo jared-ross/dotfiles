@@ -233,14 +233,12 @@ fi
 ### END OF FILE #################################################################
 
 
-alias pacman-install='pacman -Sy'
-alias pacman-search='pacman -Ss'
-
-hash -d drop="/Volumes/NAS01/DropBox"
-hash -d www="/Applications/XAMPP/htdocs/"
-alias mysqlroot='mysql -u root -S /Applications/XAMPP//xamppfiles/var/mysql/mysql.sock'
-alias ctags='/usr/local/bin/ctags'
+hash -d dropbox="/Volumes/NAS01/DropBox"
+#hash -d www="/Applications/XAMPP/htdocs/"
+#alias mysqlroot='mysql -u root -S /Applications/XAMPP//xamppfiles/var/mysql/mysql.sock'
+#alias ctags='/usr/local/bin/ctags'
 
 if [ `hostname` = 'j-arch' ]; then
     alias chromium='chromium --memory-model=low'
 fi
+

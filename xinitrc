@@ -1,18 +1,23 @@
 #!/bin/sh
 
-dropbox start
-xmodmap ~/.Xmodmap
+#   Settings 
+xmodmap ~/.Xmodmap &
+xsetroot -solid '#073642'
+
+#   Daemons
+dropbox start &
+urxvtd &
 
 while xsetroot -name "`date '+%R | %A of %B | %d/%m/%y'` | `uptime | sed 's/.*,//'`"
-do
-	sleep 1
-done &
+do sleep 1; done &
 
-xrandr |grep VGA| grep -q " connected " 
-if [ $? -eq 0 ]; then
-    xrandr --output VGA1 --auto
-    xrandr --output LVDS1 --auto
-    xrandr --output VGA1 --right-of LVDS1
+{ 
+right='VGA1'
+left='LVDS1'
+if `xrandr | grep -q "${right} connected"`; then
+    xrandr --output "${right}" --auto --output "${left}" --auto
+    xrandr --output "${right}" --right-of "${left}"
 fi
+} &
 
 exec ssh-agent dwm
