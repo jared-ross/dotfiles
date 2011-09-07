@@ -8,3 +8,5 @@
 	ui = true
 [core]
 	excludesfile = /home/jared/.gitignore.global
+[apply]
+	whitespace = nowarn

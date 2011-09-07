@@ -120,8 +120,9 @@ set nojoinspaces
 set listchars=tab:▸\ ,eol:¬
 set wildmode=longest,list
 set nrformats=
-"set spelllang=en_gb
-" Put swap files in /tmp file
+set spelllang=en_au
+" Put swap files in ~/.vimcache file
+" call system('if ! [ -d "~/.vimcache ]; then mkdir ~/.vimcache; fi')
 set backupdir=~/.vimcache
 set directory=~/.vimcache
 if has("autocmd")
