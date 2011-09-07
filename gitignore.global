@@ -1,0 +1,63 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.bzip
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# Editor Generated #
+####################
+## Vim
+*.sw[a-z]
+*.un~
+*~
+Session.vim
+## Emacs
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
+## Tags
+TAGS
+tags
+
+# OS generated files #
+######################
+## Mac
+._*
+.DS_Store?
+.Spotlight-V100
+.Trashes
+## Windows
+Thumbs.db
+Desktop.ini
+## KDE
+.directory
+
+ehthumbs.db
+Icon?

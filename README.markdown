@@ -17,6 +17,8 @@ Create symlinks:
     ln -s ~/dotfiles/vim ~/.vim
     ln -s ~/dotfiles/zshrc ~/.zshrc
     ln -s ~/dotfiles/zshrc.local ~/.zshrc.local
+    ln -s ~/dotfiles/gitconfig ~/.gitconfig
+    ln -s ~/dotfiles/gitignore.global ~/.gitignore.global
     ln -s ~/dotfiles/fonts.conf ~/.fonts.conf
     ln -s ~/dotfiles/ctags ~/.ctags
     ln -s ~/dotfiles/irbrc ~/.irbrc

@@ -1,0 +1,10 @@
+[user]
+	email = jared.b.ross@gmail.com
+	name = Jared Ross
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
+[core]
+	excludesfile = /home/jared/.gitignore.global
