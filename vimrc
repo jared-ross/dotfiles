@@ -132,7 +132,7 @@ if has("autocmd")
   autocmd BufNewFile,BufRead ~/projects/sencha/**/*.js setlocal ts=4 sts=4 sw=4 et
   autocmd FileType markdown setlocal wrap linebreak nolist
   autocmd BufNewFile,BufRead *.rss setfiletype xml
-  autocmd BufNewFile,BufRead Rakefile,Capfile,Gemfile,Termfile,config.ru setfiletype ruby
+  autocmd BufNewFile,BufRead Rakefile,Capfile,Gemfile,Termfile,Vagrantfile,config.ru setfiletype ruby
   autocmd FileType ruby :Abolish -buffer initialise initialize
   autocmd FileType vo_base :colorscheme solarized
   autocmd BufNewFile,BufRead ~/dotfiles/vim/macros/*,~/.vim/macros/* setfiletype viminfo
@@ -211,12 +211,9 @@ endif
 nnoremap viT vitVkoj
 nnoremap vaT vatV
 " Insert mode mappings {{{1
-" emacs style jump to end of line
-imap <C-e> <C-o>A
-imap <C-a> <C-o>I
-" Open line above (ctrl-shift-o much easier than ctrl-o shift-O)
-imap <C-Enter> <C-o>o
-imap <C-S-Enter> <C-o>O
+" http://stackoverflow.com/questions/6926034/creating-a-mapping-for-insert-mode-but-not-for-autocomplete-submode/6926691#6926691
+inoremap <expr> <c-e> pumvisible() ? "\<c-e>" : "\<c-o>A"
+inoremap <C-a> <C-o>I
 " Easily modify vimrc {{{1
 nmap <leader>v :e $MYVIMRC<CR>
 " http://stackoverflow.com/questions/2400264/is-it-possible-to-apply-vim-configurations-without-restarting/2400289#2400289
@@ -392,8 +389,8 @@ vmap <D-]> >gv
 
 " Commenting {{{2
 " requires NERDCommenter plugin
-vmap <D-/> ,c<space>gv
-map <D-/> ,c<space>
+vmap <D-/> \\gv
+map <D-/> \\\
 
 " Duplicate selection {{{2
 "vmap <S-C-D> :copy'> <CR>V`[o
