@@ -242,3 +242,7 @@ if [ `hostname` = 'j-arch' ]; then
     alias chromium='chromium --memory-model=low'
 fi
 
+if [ `hostname` = 'dv-dvs-iMac-2.local' ]; then
+    export EDITOR='/usr/bin/vim'
+    alias vim='/usr/bin/vim'
+fi
