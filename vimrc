@@ -174,26 +174,8 @@ map <D-7> 7gt
 map <D-8> 8gt
 map <D-9> 9gt
 map <D-0> :tablast<CR>
-" Shortcuts to make it easier to explore wrapped lines {{{2
-" These come in handy when the following settings are enabled:
-"     :set linebreak wrap nolist
-vmap <D-j> gj
-vmap <D-k> gk
-vmap <D-4> g$
-vmap <D-6> g^
-vmap <D-0> g^
-nmap <D-j> gj
-nmap <D-k> gk
-nmap <D-4> g$
-nmap <D-6> g^
-nmap <D-0> g^
 " Shortcuts for opening file in same directory as current file {{{2
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>ew :e %%
-map <leader>es :sp %%
-map <leader>ev :vsp %%
-map <leader>et :tabe %%
-map <leader>er :e <C-R>=expand("%:r")."."<CR>
 " Shortcuts for visual selections {{{2
 nmap gV `[v`]
 " http://stackoverflow.com/questions/6228079/remove-newlines-from-a-register-in-vim/6235707#6235707
@@ -381,32 +363,6 @@ set laststatus=2
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-" Mappings for a recovering TextMate user {{{1
-" Indentation {{{2
-nmap <D-[> <<
-nmap <D-]> >>
-vmap <D-[> <gv
-vmap <D-]> >gv
-
-" Commenting {{{2
-" requires NERDCommenter plugin
-vmap <D-/> \\gv
-map <D-/> \\\
-
-" Duplicate selection {{{2
-"vmap <S-C-D> :copy'> <CR>V`[o
-"nmap <S-C-D> :copy .<CR>
-" Move selection {{{2
-  " Move current line down/up
-  map <C-Down> ]e
-  map <C-Up> [e
-  " Move visually selected lines down/up
-  vmap <C-Down> ]egv
-  vmap <C-Up> [egv
-" Move visual selection back/forwards
-set ww+=<,>
-vmap <C-Left> x<Left>P`[v`]
-vmap <C-Right> x<Right>P`[v`]
 " Configure plugins {{{1
 " Fugitive.vim {{{2
 if has("autocmd")
