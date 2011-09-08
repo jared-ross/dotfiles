@@ -182,3 +182,6 @@
 	path = vim/bundle/commentary
 	url = https://github.com/tpope/vim-commentary.git
 	ignore = dirty
+[submodule "vim/bundle/vim-css3-syntax"]
+	path = vim/bundle/vim-css3-syntax
+	url = https://github.com/hail2u/vim-css3-syntax.git
