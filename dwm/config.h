@@ -50,7 +50,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, 
 static const char *termcmd[]  = { "urxvtc", NULL };
 static const char *roxcmd[]  = { "rox", NULL };
 static const char *slockcmd[]  = { "slock", NULL };
-static const char *suspendcmd[]  = { "slock & {sleep 5 && sudo pm-suspend", NULL };
+static const char *suspendcmd[]  = { "slock & { sleep 5 && sudo pm-suspend }", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
