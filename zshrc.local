@@ -244,4 +244,6 @@ fi
 if [ `hostname` = 'dv-dvs-iMac-2.local' ]; then
     hash -d dropbox="/Volumes/NAS01/DropBox"
     export EDITOR='/opt/local/bin/vim'
+    export NODE_PATH="/usr/local/lib/node"
+    export PATH="$PATH:$NODE_PATH"
 fi
