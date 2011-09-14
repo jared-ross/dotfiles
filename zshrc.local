@@ -235,7 +235,6 @@ fi
 
 #hash -d www="/Applications/XAMPP/htdocs/"
 #alias mysqlroot='mysql -u root -S /Applications/XAMPP//xamppfiles/var/mysql/mysql.sock'
-#alias ctags='/usr/local/bin/ctags'
 
 if [ `hostname` = 'j-arch' ]; then
     alias chromium='chromium --memory-model=low'
@@ -246,4 +245,5 @@ if [ `hostname` = 'dv-dvs-iMac-2.local' ]; then
     export EDITOR='/opt/local/bin/vim'
     export NODE_PATH="/usr/local/lib/node"
     export PATH="$PATH:$NODE_PATH"
+    alias ctags='/usr/local/bin/ctags'
 fi

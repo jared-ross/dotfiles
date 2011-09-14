@@ -123,7 +123,7 @@ set listchars=tab:▸\ ,eol:¬
 set wildmode=longest,list
 set nrformats=
 set spelllang=en_au
-" Put swap files in ~/.vimcache file
+set tags+=tags;
 " backup {{{2
 silent !mkdir -p ~/.vimtmp/backup/
 silent !mkdir -p ~/.vimtmp/swap/
