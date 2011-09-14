@@ -122,9 +122,17 @@ set wildmode=longest,list
 set nrformats=
 set spelllang=en_au
 " Put swap files in ~/.vimcache file
-" call system('if ! [ -d "~/.vimcache ]; then mkdir ~/.vimcache; fi')
-set backupdir=~/.vimcache
-set directory=~/.vimcache
+" backup {{{2
+silent !mkdir -p ~/.vimtmp/backup/
+silent !mkdir -p ~/.vimtmp/swap/
+silent !mkdir -p ~/.vimtmp/undo/
+set backupdir=~/.vimtmp/backup//
+set directory=~/.vimtmp/swap//
+if has("undofile")
+  set undodir=~/.vimtmp/undo//
+  set undofile
+endif
+" 2}}}
 if has("autocmd")
   autocmd FileType html,php,css,scss,ruby,pml,yaml,coffee,vim setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType vim setlocal foldmethod=marker
@@ -457,9 +465,6 @@ let g:NERDMenuMode=0
 " vim: nowrap fdm=marker
 " }}}
 
-if version >= 703
-  set undofile
-  set undodir=~/.vimcache
-endif
+
 
 map <F2>    :set insertmode! <CR>
