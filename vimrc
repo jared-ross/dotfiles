@@ -4,6 +4,8 @@
 " za    toggle fold at cursor position
 " zj    move down to start of next fold
 " zk    move up to end of previous fold
+" References:  {{{1
+" https://bitbucket.org/sjl/dotfiles/src/2e25b11e75fc/vim/.vimrc#cl-86
 " Manage plugins. {{{1
 runtime macros/matchit.vim
 runtime ftplugin/man.vim
@@ -473,11 +475,16 @@ let g:EasyMotion_leader_key = ',,'
 let g:vimwiki_menu=''
 " NERDcommenter {{{2
 let g:NERDMenuMode=0
+" Rainbows: {{{2
+nmap <leader>R :RainbowParenthesesToggle<CR>
 "  Modelines: {{{1
 " vim: nowrap fdm=marker
 " }}}
 
 " HTML tag closing
 inoremap <C-_> <Space><BS><Esc>:call InsertCloseTag()<cr>a
+
+" Sudo to write
+cmap w!! w !sudo tee % >/dev/null
 
 map <F2>    :set insertmode! <CR>
