@@ -138,6 +138,16 @@ if has("autocmd")
   autocmd FileType vim setlocal foldmethod=marker
   autocmd FileType html setlocal foldmethod=indent foldlevel=1
   autocmd FileType css,javascript setlocal foldmethod=marker foldmarker={,}
+
+  " Use Shift-Return to turn this:
+  "     <tag>|</tag>
+  "
+  " into this:
+  "       <tag>
+  "         |
+  "     </tag>
+  au FileType html,jinja,htmldjango nnoremap <buffer> <s-cr> vit<esc>a<cr><esc>vito<esc>i<cr><esc>
+  
   autocmd FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd BufNewFile,BufRead ~/projects/sencha/**/*.js setlocal ts=4 sts=4 sw=4 et
@@ -467,6 +477,7 @@ let g:NERDMenuMode=0
 " vim: nowrap fdm=marker
 " }}}
 
-
+" HTML tag closing
+inoremap <C-_> <Space><BS><Esc>:call InsertCloseTag()<cr>a
 
 map <F2>    :set insertmode! <CR>
