@@ -233,7 +233,6 @@ fi
 ### END OF FILE #################################################################
 
 
-hash -d dropbox="/Volumes/NAS01/DropBox"
 #hash -d www="/Applications/XAMPP/htdocs/"
 #alias mysqlroot='mysql -u root -S /Applications/XAMPP//xamppfiles/var/mysql/mysql.sock'
 #alias ctags='/usr/local/bin/ctags'
@@ -243,6 +242,8 @@ if [ `hostname` = 'j-arch' ]; then
 fi
 
 if [ `hostname` = 'dv-dvs-iMac-2.local' ]; then
-    # export EDITOR='/usr/bin/vim'
-    alias mvim='/Applications/MacVim.app/Contents/MacOS/MVim -f'
+    hash -d dropbox="/Volumes/NAS01/DropBox"
+    export EDITOR='/opt/local/bin/vim'
+    export NODE_PATH="/usr/local/lib/node"
+    export PATH="$PATH:$NODE_PATH"
 fi
