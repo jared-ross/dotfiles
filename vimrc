@@ -373,11 +373,43 @@ command! -range=% -nargs=1 Refactor :<line1>,<line2>call Refactor(<args>)
 " Status line {{{1
 " Good article on setting a statusline:
 "   http://got-ravings.blogspot.com/2008/08/vim-pr0n-making-statuslines-that-own.html
+"
+" Also using:
+"   https://bitbucket.org/sjl/dotfiles/src/2e25b11e75fc/vim/.vimrc#cl-86
 " Always show the status line (even if no split windows)
 set laststatus=2
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+
+set statusline=%<
+set statusline+=\                             " Space.
+set statusline+=%#StatuslineNC#               " switch to directory highlight
+set statusline+=%-.40F                        " Path.
+set statusline+=%*                            " switch back to normal statusline highlight
+set statusline+=\                             " Space.
+set statusline+=%h                            " help file flag
+set statusline+=%m                            " Modified flag.
+set statusline+=%r                            " Readonly flag.
+set statusline+=%w                            " Preview window flag.
+set statusline+=%{fugitive#statusline()}
+set statusline+=\                             " Space.
+
+set statusline+=%#warningmsg#                 " Highlight the following as a warning.
+set statusline+=%{SyntasticStatuslineFlag()}  " Syntastic errors.
+set statusline+=%*                            " Reset highlighting.
+
+set statusline+=%=                            " Right align.
+
+" File format, encoding and type.  Ex:        " (unix/utf-8/python)"
+set statusline+=%{&ft}                        " Type (python).
+set statusline+=/
+set statusline+=%{strlen(&fenc)?&fenc:&enc}   " Encoding (utf-8).
+set statusline+=\  
+set statusline+=%{&ff}                        " Format (unix/DOS).
+
+" Line and column position and counts.
+set statusline+=\  
+set statusline+=\  
+set statusline+=%l/%L                         " cursor line/total lines
+set statusline+=\  
 " Configure plugins {{{1
 " Fugitive.vim {{{2
 if has("autocmd")
@@ -392,8 +424,6 @@ if has("autocmd")
     \ endif
 
 endif
-" Add git branch to statusline.
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " Gundo.vim {{{2
 map <Leader>u :GundoToggle<CR>
 
