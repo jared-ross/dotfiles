@@ -477,6 +477,13 @@ let g:vimwiki_menu=''
 let g:NERDMenuMode=0
 " Rainbows: {{{2
 nmap <leader>R :RainbowParenthesesToggle<CR>
+" HTML5: {{{2
+
+let g:event_handler_attributes_complete = 0
+let g:rdfa_attributes_complete = 0
+let g:microdata_attributes_complete = 0
+let g:atia_attributes_complete = 0
+
 "  Modelines: {{{1
 " vim: nowrap fdm=marker
 " }}}
