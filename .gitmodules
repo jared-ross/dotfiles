@@ -186,6 +186,3 @@
 	path = vim/bundle/vim-css3-syntax
 	url = https://github.com/hail2u/vim-css3-syntax.git
     dirty = ignore
-[submodule "vim/bundle/Rainbow-Parenthesis"]
-	path = vim/bundle/Rainbow-Parenthesis
-	url = https://github.com/vim-scripts/Rainbow-Parenthesis.git
