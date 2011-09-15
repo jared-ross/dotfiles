@@ -189,3 +189,6 @@
 [submodule "vim/bundle/html5"]
 	path = vim/bundle/html5
 	url = git://github.com/othree/html5.vim.git
+[submodule "vim/bundle/css-folding"]
+	path = vim/bundle/css-folding
+	url = https://github.com/vim-scripts/CSS-one-line--multi-line-folding.git
