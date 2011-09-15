@@ -4,6 +4,8 @@
 " za    toggle fold at cursor position
 " zj    move down to start of next fold
 " zk    move up to end of previous fold
+" References:  {{{1
+" https://bitbucket.org/sjl/dotfiles/src/2e25b11e75fc/vim/.vimrc#cl-86
 " Manage plugins. {{{1
 runtime macros/matchit.vim
 runtime ftplugin/man.vim
@@ -121,13 +123,33 @@ set listchars=tab:▸\ ,eol:¬
 set wildmode=longest,list
 set nrformats=
 set spelllang=en_au
-" Put swap files in ~/.vimcache file
-" call system('if ! [ -d "~/.vimcache ]; then mkdir ~/.vimcache; fi')
-set backupdir=~/.vimcache
-set directory=~/.vimcache
+set tags+=tags;
+" backup {{{2
+silent !mkdir -p ~/.vimtmp/backup/
+silent !mkdir -p ~/.vimtmp/swap/
+silent !mkdir -p ~/.vimtmp/undo/
+set backupdir=~/.vimtmp/backup//
+set directory=~/.vimtmp/swap//
+if has("undofile")
+  set undodir=~/.vimtmp/undo//
+  set undofile
+endif
+" 2}}}
 if has("autocmd")
   autocmd FileType html,php,css,scss,ruby,pml,yaml,coffee,vim setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType vim setlocal foldmethod=marker
+  autocmd FileType html setlocal foldmethod=indent foldlevel=1
+  autocmd FileType css,javascript setlocal foldmethod=marker foldmarker={,}
+
+  " Use Shift-Return to turn this:
+  "     <tag>|</tag>
+  "
+  " into this:
+  "       <tag>
+  "         |
+  "     </tag>
+  au FileType html,jinja,htmldjango nnoremap <buffer> <s-cr> vit<esc>a<cr><esc>vito<esc>i<cr><esc>
+  
   autocmd FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd BufNewFile,BufRead ~/projects/sencha/**/*.js setlocal ts=4 sts=4 sw=4 et
@@ -180,6 +202,21 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 nmap gV `[v`]
 " http://stackoverflow.com/questions/6228079/remove-newlines-from-a-register-in-vim/6235707#6235707
 nnoremap <expr> gV    "`[".getregtype(v:register)[0]."`]"
+" <c-x>{char} - paste register into search field {{{2
+" escaping sensitive chars
+" http://stackoverflow.com/questions/7400743/
+cnoremap <c-x> <c-r>=<SID>PasteEscaped()<cr>
+function! s:PasteEscaped()
+  echo "\\".getcmdline()."\""
+  let char = getchar()
+  if char == "\<esc>"
+    return ''
+  else
+    let register_content = getreg(nr2char(char))
+    let escaped_register = escape(register_content, '\'.getcmdtype())
+    return substitute(escaped_register, '\n', '\\n', 'g')
+  endif
+endfunction
 " Substitute command repetition {{{2
 nnoremap & :~&<Enter>
 vnoremap & :~&<Enter>
@@ -358,11 +395,43 @@ command! -range=% -nargs=1 Refactor :<line1>,<line2>call Refactor(<args>)
 " Status line {{{1
 " Good article on setting a statusline:
 "   http://got-ravings.blogspot.com/2008/08/vim-pr0n-making-statuslines-that-own.html
+"
+" Also using:
+"   https://bitbucket.org/sjl/dotfiles/src/2e25b11e75fc/vim/.vimrc#cl-86
 " Always show the status line (even if no split windows)
 set laststatus=2
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+
+set statusline=%<
+set statusline+=\                             " Space.
+set statusline+=%#StatuslineNC#               " switch to directory highlight
+set statusline+=%-.40F                        " Path.
+set statusline+=%*                            " switch back to normal statusline highlight
+set statusline+=\                             " Space.
+set statusline+=%h                            " help file flag
+set statusline+=%m                            " Modified flag.
+set statusline+=%r                            " Readonly flag.
+set statusline+=%w                            " Preview window flag.
+set statusline+=%{fugitive#statusline()}
+set statusline+=\                             " Space.
+
+set statusline+=%#warningmsg#                 " Highlight the following as a warning.
+set statusline+=%{SyntasticStatuslineFlag()}  " Syntastic errors.
+set statusline+=%*                            " Reset highlighting.
+
+set statusline+=%=                            " Right align.
+
+" File format, encoding and type.  Ex:        " (unix/utf-8/python)"
+set statusline+=%{&ft}                        " Type (python).
+set statusline+=/
+set statusline+=%{strlen(&fenc)?&fenc:&enc}   " Encoding (utf-8).
+set statusline+=\  
+set statusline+=%{&ff}                        " Format (unix/DOS).
+
+" Line and column position and counts.
+set statusline+=\  
+set statusline+=\  
+set statusline+=%l/%L                         " cursor line/total lines
+set statusline+=\  
 " Configure plugins {{{1
 " Fugitive.vim {{{2
 if has("autocmd")
@@ -377,8 +446,6 @@ if has("autocmd")
     \ endif
 
 endif
-" Add git branch to statusline.
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " Gundo.vim {{{2
 map <Leader>u :GundoToggle<CR>
 
@@ -408,13 +475,23 @@ let g:EasyMotion_leader_key = ',,'
 let g:vimwiki_menu=''
 " NERDcommenter {{{2
 let g:NERDMenuMode=0
+" Rainbows: {{{2
+nmap <leader>R :RainbowParenthesesToggle<CR>
+" HTML5: {{{2
+
+let g:event_handler_attributes_complete = 0
+let g:rdfa_attributes_complete = 0
+let g:microdata_attributes_complete = 0
+let g:atia_attributes_complete = 0
+
 "  Modelines: {{{1
 " vim: nowrap fdm=marker
 " }}}
 
-if version >= 703
-  set undofile
-  set undodir=~/.vimcache
-endif
+" HTML tag closing
+inoremap <C-_> <Space><BS><Esc>:call InsertCloseTag()<cr>a
+
+" Sudo to write
+cmap w!! w !sudo tee % >/dev/null
 
 map <F2>    :set insertmode! <CR>
