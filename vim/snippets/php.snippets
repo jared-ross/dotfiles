@@ -1,0 +1,8 @@
+snippet wf
+	while ( $${1:row}  = mysql_fetch_array( $${2:rs}, MYSQL_ASSOC)) {
+		${3:// code...}
+	}
+snippet row
+	<?= $row["${1}"] ?>
+snippet page
+	<?= $page["${1}"] ?>
