@@ -9,6 +9,7 @@
 " Manage plugins. {{{1
 runtime macros/matchit.vim
 runtime ftplugin/man.vim
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 let g:GetLatestVimScripts_allowautoinstall=1
