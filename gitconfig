@@ -10,3 +10,9 @@
 	excludesfile = /home/jared/.gitignore.global
 [apply]
 	whitespace = nowarn
+[instaweb]
+    browser = chromium
+[alias]
+	co = checkout
+	s = status
+	d = diff
