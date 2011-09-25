@@ -18,6 +18,7 @@ left='LVDS1'
 if `xrandr | grep -q "${right} connected"`; then
     xrandr --output "${right}" --auto --output "${left}" --auto
     xrandr --output "${right}" --right-of "${left}"
+    xrandr --output "${right}" --auto --output "${left}" --auto
 fi
 } &
 
