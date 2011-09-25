@@ -1,6 +1,6 @@
 Installation
 
-    git clone git://github.com/nelstrom/dotfiles.git
+    git clone git://github.com/scjr/dotfiles.git
 
 Where possible, Vim plugins are installed as git submodules. Check these out by
 running the commands:
@@ -20,14 +20,11 @@ Create symlinks:
     ln -s ~/dotfiles/gitconfig ~/.gitconfig
     ln -s ~/dotfiles/gitignore.global ~/.gitignore.global
     ln -s ~/dotfiles/fonts.conf ~/.fonts.conf
+
+
     ln -s ~/dotfiles/ctags ~/.ctags
     ln -s ~/dotfiles/irbrc ~/.irbrc
     ln -s ~/dotfiles/jshintrc ~/.jshintrc
-
-I put Vim's backup and swap files in `~/tmp`, so that directory must exist. To
-be sure, run: 
-
-    mkdir ~/tmp
 
 VIM
 ===
