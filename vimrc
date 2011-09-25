@@ -126,9 +126,9 @@ set nrformats=
 set spelllang=en_au
 set tags+=tags;
 " backup {{{2
-silent !mkdir -p ~/.vimtmp/backup/ &
-silent !mkdir -p ~/.vimtmp/swap/ &
-silent !mkdir -p ~/.vimtmp/undo/ &
+silent !mkdir -p ~/.vimtmp/backup/
+silent !mkdir -p ~/.vimtmp/swap/
+silent !mkdir -p ~/.vimtmp/undo/
 set backupdir=~/.vimtmp/backup//
 set directory=~/.vimtmp/swap//
 set backupskip=/tmp/*,/private/tmp/*"  
