@@ -36,11 +36,7 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
+
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -127,13 +123,18 @@ set spelllang=en_au
 set tags+=tags;
 " backup {{{2
 silent !mkdir -p ~/.vimtmp/{backup,swap,undo}/
-set backupdir=~/.vimtmp/backup//
-set directory=~/.vimtmp/swap//
-set backupskip=/tmp/*,/private/tmp/*"  
-if has("persistent_undo")
-  set undodir=~/.vimtmp/undo//
-  set undofile
+if has("vms")
+  set nobackup		" do not keep a backup file, use versions instead
+else
+  set backup		" keep a backup file
+  set backupdir=~/.vimtmp/backup//
+  if has("persistent_undo")
+    set undodir=~/.vimtmp/undo//
+    set undofile
+  endif
 endif
+set directory=~/.vimtmp/swap//
+set backupskip=/tmp/*,/private/tmp/*      
 " 2}}}
 if has("autocmd")
   autocmd FileType html,php,css,scss,ruby,pml,yaml,coffee,vim setlocal ts=2 sts=2 sw=2 expandtab
