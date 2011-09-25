@@ -130,7 +130,7 @@ silent !mkdir -p ~/.vimtmp/{backup,swap,undo}/
 set backupdir=~/.vimtmp/backup//
 set directory=~/.vimtmp/swap//
 set backupskip=/tmp/*,/private/tmp/*"  
-if has("undofile")
+if has("persistent_undo")
   set undodir=~/.vimtmp/undo//
   set undofile
 endif
