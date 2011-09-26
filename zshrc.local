@@ -248,3 +248,5 @@ if [ `hostname` = 'dv-dvs-iMac-2.local' ]; then
     export PATH="$PATH:$NODE_PATH"
     alias ctags='/usr/local/bin/ctags'
 fi
+
+setopt vi
