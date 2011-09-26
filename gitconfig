@@ -1,11 +1,10 @@
 [user]
 	email = jared.b.ross@gmail.com
 	name = Jared Ross
+[github]
+    user = scjr
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	ui = true
+	ui = auto
 [core]
 	excludesfile = /home/jared/.gitignore.global
 [apply]
@@ -14,5 +13,22 @@
     browser = chromium
 [alias]
 	co = checkout
-	s = status
-	d = diff
+	st = status
+	df = diff
+[merge]
+    log = true
+[rerere]
+    enabled = 1
+[url "git@github.com:"]
+    insteadOf = "gh:"
+    pushInsteadOf = "github:"
+    pushInsteadOf = "git://github.com/"
+[url "git://github.com/"]
+    insteadOf = "github:"
+[url "git@gist.github.com:"]
+    insteadOf = "gst:"
+    pushInsteadOf = "gist:"
+    pushInsteadOf = "git://gist.github.com/"
+[url "git://gist.github.com/"]
+    insteadOf = "gist:"
+
