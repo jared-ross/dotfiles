@@ -2,6 +2,8 @@ snippet wf
 	while ( $${1:row}  = mysql_fetch_array( $${2:rs}, MYSQL_ASSOC)) {
 		${3:// code...}
 	}
+snippet myfetch
+	mysql_fetch_array( $${1:rs}, MYSQL_ASSOC)
 snippet row
 	<?= $row["${1}"] ?>
 snippet page
