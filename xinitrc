@@ -2,6 +2,7 @@
 
 #   Settings 
 xmodmap ~/.Xmodmap &
+xmodmap ~/.Xmodmap &
 setxkbmap -option compose:menu
 xsetroot -solid '#073642'
 
