@@ -239,7 +239,6 @@ fi
 if [ `hostname` = 'j-arch' ]; then
     alias chromium='chromium --memory-model=low'
     export NODE_PATH="/usr/lib/node_modules"
-    setopt vi
 fi
 
 if [ `hostname` = 'dv-dvs-iMac-2.local' ]; then
