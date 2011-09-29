@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #   Settings 
-xmodmap ~/.Xmodmap &
+
 xmodmap ~/.Xmodmap &
 setxkbmap -option compose:menu
 xsetroot -solid '#073642'
@@ -22,5 +22,7 @@ if `xrandr | grep -q "${right} connected"`; then
     xrandr --output "${right}" --auto --output "${left}" --auto
 fi
 } &
+
+xmodmap ~/.Xmodmap
 
 exec ssh-agent dwm
