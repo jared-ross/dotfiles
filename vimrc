@@ -122,7 +122,8 @@ set nrformats=
 set spelllang=en_au
 set tags+=tags;
 " backup {{{2
-silent !mkdir -p ~/.vimtmp/{backup,swap,undo}/
+"Broken on  mac
+"silent !mkdir -p ~/.vimtmp/{backup,swap,undo}/
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
