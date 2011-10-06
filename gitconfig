@@ -7,6 +7,8 @@
 	ui = auto
 [core]
 	excludesfile = /home/jared/.gitignore.global
+[diff]
+    tool = vimdiff
 [apply]
 	whitespace = nowarn
 [instaweb]
