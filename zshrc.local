@@ -239,6 +239,7 @@ fi
 if [ `hostname` = 'j-arch' ]; then
     alias chromium='chromium --memory-model=low'
     export NODE_PATH="/usr/lib/node_modules"
+    plugins=(git archlinux compleat node vi-mode )
 fi
 
 if [ `hostname` = 'dv-dvs-iMac-2.local' ]; then
@@ -247,10 +248,13 @@ if [ `hostname` = 'dv-dvs-iMac-2.local' ]; then
     export NODE_PATH="/usr/local/lib/node"
     export PATH="$PATH:$NODE_PATH"
     alias ctags='/usr/local/bin/ctags'
+    plugins=(git osx compleat node)
 fi
 
 for file in exports aliases functions extra; do
   file="$HOME/.$file"
   [ -e "$file" ] && source "$file"
 done
+
+source ~/.zshrc.oh-my-zsh
 
