@@ -249,3 +249,8 @@ if [ `hostname` = 'dv-dvs-iMac-2.local' ]; then
     alias ctags='/usr/local/bin/ctags'
 fi
 
+for file in exports aliases functions extra; do
+  file="$HOME/.$file"
+  [ -e "$file" ] && source "$file"
+done
+
