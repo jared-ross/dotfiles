@@ -497,6 +497,9 @@ inoremap <C-_> <Space><BS><Esc>:call InsertCloseTag()<cr>a
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
 
-inoremap <F1> <ESC>
-inoremap <Help> <ESC>
+map <F1> <ESC>
+map <Help> <ESC>
+map <S-Down> <Down>
+map <S-Up> <Up>
+
 map <F2>    :set insertmode! <CR>
