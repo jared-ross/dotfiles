@@ -121,6 +121,7 @@ set wildmode=longest,list
 set nrformats=
 set spelllang=en_au
 set tags+=tags;
+set scrolloff=10
 " backup {{{2
 "Broken on  mac
 "silent !mkdir -p ~/.vimtmp/{backup,swap,undo}/
@@ -232,6 +233,30 @@ endif
 " TextObject tweaks {{{1
 nnoremap viT vitVkoj
 nnoremap vaT vatV
+  " NumberText Object {{{2
+  onoremap N :<c-u>call <SID>NumberTextObject(0)<cr>
+  xnoremap N :<c-u>call <SID>NumberTextObject(0)<cr>
+  onoremap aN :<c-u>call <SID>NumberTextObject(1)<cr>
+  xnoremap aN :<c-u>call <SID>NumberTextObject(1)<cr>
+  onoremap iN :<c-u>call <SID>NumberTextObject(1)<cr>
+  xnoremap iN :<c-u>call <SID>NumberTextObject(1)<cr>
+
+  function! s:NumberTextObject(whole)
+      normal! v
+
+      while getline('.')[col('.')] =~# '\v[0-9]'
+          normal! l
+      endwhile
+
+      if a:whole
+          normal! o
+
+          while col('.') > 1 && getline('.')[col('.') - 2] =~# '\v[0-9]'
+              normal! h
+          endwhile
+      endif
+  endfunction
+  " }}}
 " Insert mode mappings {{{1
 " http://stackoverflow.com/questions/6926034/creating-a-mapping-for-insert-mode-but-not-for-autocomplete-submode/6926691#6926691
 inoremap <expr> <c-e> pumvisible() ? "\<c-e>" : "\<c-o>A"
@@ -491,15 +516,70 @@ let g:atia_attributes_complete = 0
 " vim: nowrap fdm=marker
 " }}}
 
-" HTML tag closing
+" HTML tag closing {{{1
 inoremap <C-_> <Space><BS><Esc>:call InsertCloseTag()<cr>a
+function! InsertCloseTag()
+" inserts the appropriate closing HTML tag; used for the \hc operation defined
+" above;
+" requires ignorecase to be set, or to type HTML tags in exactly the same case
+" that I do;
+" doesn't treat <P> as something that needs closing;
+" clobbers register z and mark z
+" 
+" by Smylers  http://www.stripey.com/vim/ 2000 May 3
+
+    " list of tags which shouldn't be closed:
+    let UnaryTags = ' Area Base Br DD DT HR Img Input LI Link Meta P Param '
+
+    " remember current position:
+    normal mz
+
+    " loop backwards looking for tags:
+    let Found = 0
+    while Found == 0
+      " find the previous <, then go forwards one character and grab the first
+      " character plus the entire word:
+      execute "normal ?\<LT>\<CR>l"
+      normal "zyl
+      let Tag = expand('<cword>')
+
+      " if this is a closing tag, skip back to its matching opening tag:
+      if @z == '/'
+        execute "normal ?\<LT>" . Tag . "\<CR>"
+
+      " if this is a unary tag, then position the cursor for the next
+      " iteration:
+      elseif match(UnaryTags, ' ' . Tag . ' ') > 0
+        normal h
+
+      " otherwise this is the tag that needs closing:
+      else
+        let Found = 1
+
+      endif
+    endwhile " not yet found match
+
+    " create the closing tag and insert it:
+    let @z = '</' . Tag . '>'
+    normal `z"zp
+
+endfunction " InsertCloseTag()
+" }}}
+
+" Highlighting terms:
+
+nnoremap <silent> <leader>h1 :execute 'match W1 /\<<c-r><c-w>\>/'<cr> hi W1 guibg=#aeee00 guifg=#000000 ctermbg=154 ctermfg=16
 
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
 
-map <F1> <ESC>
-map <Help> <ESC>
+inoremap <F1> <ESC>
+inoremap <Help> <ESC>
 map <S-Down> <Down>
 map <S-Up> <Up>
 
 map <F2>    :set insertmode! <CR>
+
+" Only show colorcolumn in the current window. 
+au WinLeave * setlocal colorcolumn=0 
+au WinEnter * setlocal colorcolumn=+1

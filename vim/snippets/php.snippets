@@ -8,9 +8,19 @@ snippet row
 	<?= $row["${1}"] ?>
 snippet page
 	<?= $page["${1}"] ?>
+snippet Page
+	<?= $Page["${1}"] ?>
 snippet pre
 	echo "<pre>${1}</pre>";
+snippet pre;
+	echo "<pre>";
+	${1}
+	echo "</pre>";
 snippet code
 	echo "<code>${1}</code>";
+snippet code;
+	echo "<code>"
+	${1}
+	echo "</code>";
 snippet <?inc
-	<? include('${1}'); ?>
+	<? include '${1}' ?>

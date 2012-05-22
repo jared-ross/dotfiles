@@ -239,16 +239,26 @@ fi
 if [ `hostname` = 'j-arch' ]; then
     alias chromium='chromium --memory-model=low'
     export NODE_PATH="/usr/lib/node_modules"
-    plugins=(git archlinux compleat node vi-mode )
+    plugins=(git archlinux compleat node )
 fi
 
-if [ `hostname` = 'dv-dvs-iMac-2.local' ]; then
+if [ `hostname` = 'doc.local' ]; then
     hash -d dropbox="/Volumes/NAS01/DropBox"
     export EDITOR='/opt/local/bin/vim'
     export NODE_PATH="/usr/local/lib/node"
-    export PATH="$PATH:$NODE_PATH"
+    export PATH="$PATH:$NODE_PATH:/opt/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin/:/Applications/SenchaSDKTools-2.0.0-Beta/:/Applications/SenchaSDKTools-2.0.0-Beta/bin/"
     alias ctags='/usr/local/bin/ctags'
     plugins=(git osx compleat node)
+    switchSite() {
+        sudo rm /Applications/XAMPP/htdocs
+        sudo ln -s "/Applications/XAMPP/htdocs-actual/${1}" /Applications/XAMPP/htdocs
+    }
+    gotoSite() {
+        cd "/Applications/XAMPP/htdocs-actual/${1}"
+    }
+    error_log() {
+        tail /Applications/XAMPP/logs/error_log
+    }
 fi
 
 for file in exports aliases functions extra; do
