@@ -156,7 +156,7 @@
 	ignore = dirty
 [submodule "vim/bundle/solarized"]
 	path = vim/bundle/solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
+	url = git://github.com/altercation/vim-colors-solarized.git
 	ignore = dirty
 [submodule "vim/bundle/textobj-diff"]
 	path = vim/bundle/textobj-diff
