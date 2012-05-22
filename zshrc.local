@@ -236,10 +236,12 @@ fi
 #hash -d www="/Applications/XAMPP/htdocs/"
 #alias mysqlroot='mysql -u root -S /Applications/XAMPP//xamppfiles/var/mysql/mysql.sock'
 
-if [ `hostname` = 'j-arch' ]; then
+if [ `hostname` = 'jastaway' ]; then
+    hash -d manga=~/media/manga
+    hash -d music=~/media/music
     alias chromium='chromium --memory-model=low'
     export NODE_PATH="/usr/lib/node_modules"
-    plugins=(git archlinux compleat node vi-mode )
+    plugins=(git archlinux compleat node  )
 fi
 
 if [ `hostname` = 'dv-dvs-iMac-2.local' ]; then

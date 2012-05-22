@@ -23,6 +23,8 @@ if `xrandr | grep -q "${right} connected"`; then
 fi
 } &
 
+feh --bg-scale "~/Dropbox/docs/wallpapers/blackjack v3 cover.png"
+
 xmodmap ~/.Xmodmap
 
 exec ssh-agent dwm
