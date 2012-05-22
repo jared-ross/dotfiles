@@ -499,4 +499,7 @@ cmap w!! w !sudo tee % >/dev/null
 
 map <F1> <ESC>
 map <Help> <ESC>
+map <S-Down> <Down>
+map <S-Up> <Up>
+
 map <F2>    :set insertmode! <CR>
