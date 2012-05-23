@@ -241,11 +241,7 @@ if [ `hostname` = 'jastaway' ]; then
     hash -d music=~/media/music
     alias chromium='chromium --memory-model=low'
     export NODE_PATH="/usr/lib/node_modules"
-<<<<<<< HEAD
     plugins=(git archlinux compleat node )
-=======
-    plugins=(git archlinux compleat node  )
->>>>>>> 8650233d5d9d7ff842c35a39b82d1bcd93527941
 fi
 
 if [ `hostname` = 'doc.local' ]; then
