@@ -246,7 +246,7 @@ fi
 
 if [ `hostname` = 'doc.local' ]; then
     hash -d dropbox="/Volumes/NAS01/DropBox"
-    export EDITOR='/opt/local/bin/vim'
+    export EDITOR='/Applications/MacVim.App/Contents/MacOS/Vim'
     export NODE_PATH="/usr/local/lib/node"
     export PATH="$PATH:$NODE_PATH:/opt/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin/:/Applications/SenchaSDKTools-2.0.0-Beta/:/Applications/SenchaSDKTools-2.0.0-Beta/bin/"
     alias ctags='/usr/local/bin/ctags'
