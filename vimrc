@@ -491,7 +491,7 @@ let g:space_no_search = 1
 
 " Solarized {{{2
 "let g:solarized_menu=0
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 set background=light
 colorscheme solarized
 call togglebg#map("<F5>")

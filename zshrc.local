@@ -248,6 +248,7 @@ if [ `hostname` = 'doc.local' ]; then
     export NODE_PATH="/usr/local/lib/node"
     export PATH="$PATH:$NODE_PATH:/opt/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin/:/Applications/SenchaSDKTools-2.0.0-Beta/:/Applications/SenchaSDKTools-2.0.0-Beta/bin/"
     alias ctags='/usr/local/bin/ctags'
+    alias vim='/Applications/MacVim.App/Contents/MacOS/Vim'
     plugins=(git osx compleat node)
     switchSite() {
         sudo rm /Applications/XAMPP/htdocs
