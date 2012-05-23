@@ -18,6 +18,7 @@
 	st = status
 	df = diff
 [merge]
+    tool = vimdiff
     log = true
 [rerere]
     enabled = 1

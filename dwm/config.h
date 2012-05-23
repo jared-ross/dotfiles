@@ -18,6 +18,7 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "IM" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
+	{ "feh",      "feh",      NULL,       0,            False,        -1 },
 	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
 	{ "Pidgin",   NULL,       NULL,       1 << 9,       True,        -1 },
 };
@@ -50,7 +51,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, 
 static const char *termcmd[]  = { "urxvtc", NULL };
 static const char *roxcmd[]  = { "rox", NULL };
 static const char *slockcmd[]  = { "slock", NULL };
-static const char *suspendcmd[]  = { "slock & { sleep 5 && sudo /usr/sbin/pm-suspend }", NULL };
+static const char *suspendcmd[]  = { "slock & { sleep 1 ; sudo /usr/sbin/pm-suspend ; } & ", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
