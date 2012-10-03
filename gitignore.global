@@ -51,6 +51,7 @@ tags
 ## Mac
 ._*
 .DS_Store?
+.DS_Store
 .Spotlight-V100
 .Trashes
 ## Windows
@@ -61,3 +62,8 @@ Desktop.ini
 
 ehthumbs.db
 Icon?
+
+# Compiler #
+############
+## SASS
+.sass-cache/

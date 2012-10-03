@@ -1,9 +1,9 @@
 snippet wf
-	while ( $${1:row}  = mysql_fetch_array( $${2:rs}, MYSQL_ASSOC)) {
+	while ( $${1:row}  = mysql_fetch_assoc( $${2:rs} ) ) {
 		${3:// code...}
 	}
 snippet myfetch
-	mysql_fetch_array( $${1:rs}, MYSQL_ASSOC)
+	mysql_fetch_assoc( $${1:rs} )
 snippet row
 	<?= $row["${1}"] ?>
 snippet page
@@ -24,3 +24,14 @@ snippet code;
 	echo "</code>";
 snippet <?inc
 	<? include '${1}' ?>
+snippet dump
+	echo "<pre>";
+	var_dump(${1});
+	echo "</pre>";
+snippet trace
+	echo "<pre>";
+	debug_print_backtrace();
+	echo "</pre>";
+snippet errors
+	ini_set('display_errors', 'stdout');
+	error_reporting( E_ALL );

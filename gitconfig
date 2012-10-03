@@ -1,12 +1,12 @@
 [user]
-	email = jared.b.ross@gmail.com
+	email = doc@juicebox.com.au
 	name = Jared Ross
 [github]
     user = scjr
 [color]
 	ui = auto
 [core]
-	excludesfile = /home/jared/.gitignore.global
+	excludesfile = /Users/doc/.gitignore.global
 [diff]
     tool = vimdiff
 [apply]
@@ -17,6 +17,7 @@
 	co = checkout
 	st = status
 	df = diff
+    ptl = push origin master:live
 [merge]
     tool = vimdiff
     log = true

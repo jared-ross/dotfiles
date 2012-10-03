@@ -245,12 +245,16 @@ if [ `hostname` = 'jastaway' ]; then
 fi
 
 if [ `hostname` = 'doc.local' ]; then
-    hash -d dropbox="/Volumes/NAS01/DropBox"
+    hash -d www="/srv/http/box/doc/"
+    hash -d log="/var/log/"
+    # hash -d dropbox="/Volumes/NAS01/DropBox"
     export EDITOR='/Applications/MacVim.App/Contents/MacOS/Vim'
     export NODE_PATH="/usr/local/lib/node"
     export PATH="$PATH:$NODE_PATH:/opt/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin/:/Applications/SenchaSDKTools-2.0.0-Beta/:/Applications/SenchaSDKTools-2.0.0-Beta/bin/"
     alias ctags='/usr/local/bin/ctags'
     alias vim='/Applications/MacVim.App/Contents/MacOS/Vim'
+    alias v='vim'
+    alias mv='mvim'
     plugins=(git osx compleat node)
     switchSite() {
         sudo rm /Applications/XAMPP/htdocs
