@@ -255,23 +255,13 @@ if [ `hostname` = 'doc.local' ]; then
     alias vim='/Applications/MacVim.App/Contents/MacOS/Vim'
     alias v='vim'
     alias mv='mvim'
-    plugins=(git osx compleat node)
-    switchSite() {
-        sudo rm /Applications/XAMPP/htdocs
-        sudo ln -s "/Applications/XAMPP/htdocs-actual/${1}" /Applications/XAMPP/htdocs
-    }
-    gotoSite() {
-        cd "/Applications/XAMPP/htdocs-actual/${1}"
-    }
-    error_log() {
-        tail /Applications/XAMPP/logs/error_log
-    }
+    plugins=(git osx compleat )
 fi
 
-for file in exports aliases functions extra; do
-  file="$HOME/.$file"
-  [ -e "$file" ] && source "$file"
-done
+# for file in exports aliases functions extra; do
+#   file="$HOME/.$file"
+#   [ -e "$file" ] && source "$file"
+# done
 
 source ~/.zshrc.oh-my-zsh
 

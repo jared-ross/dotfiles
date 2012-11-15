@@ -17,9 +17,12 @@
 	co = checkout
 	st = status
 	df = diff
-    ptl = push origin master:live
+    pushtolive = push origin master:live
+	pu = pull
+	lg = log -p
+	cp = cherry-pick
 [merge]
-    tool = vimdiff
+	tool = fugitive
     log = true
 [rerere]
     enabled = 1
@@ -36,3 +39,7 @@
 [url "git://gist.github.com/"]
     insteadOf = "gist:"
 
+[gui]
+	recentrepo = /srv/http/box/doc/sizzle
+[mergetool "fugitive"]
+	cmd = mvim -f -c \"Gdiff\" \"$MERGED\"
