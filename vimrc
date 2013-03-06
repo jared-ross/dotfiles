@@ -98,6 +98,8 @@ else
 
 endif " has("autocmd")
 
+set autoindent
+
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
@@ -141,7 +143,7 @@ set directory=~/.vimtmp/swap//
 set backupskip=      
 " 2}}}
 if has("autocmd")
-  autocmd FileType html,php,css,scss,ruby,pml,yaml,coffee,vim setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType html,php,css,scss,ruby,pml,yaml,coffee,vim setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
   autocmd FileType vim setlocal foldmethod=marker
   autocmd FileType html setlocal foldmethod=indent foldlevel=1
   autocmd FileType css,javascript setlocal foldmethod=marker foldmarker={,}
@@ -695,3 +697,4 @@ noremap <S-Space> 
 
 " Might fix performance
 autocmd BufWinLeave * call clearmatches()
+

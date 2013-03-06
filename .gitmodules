@@ -213,3 +213,9 @@
 [submodule "vim/bundle/golden-ratio"]
 	path = vim/bundle/golden-ratio
 	url = https://github.com/roman/golden-ratio.git
+[submodule "vim/bundle/vim-twig"]
+	path = vim/bundle/vim-twig
+	url = https://github.com/beyondwords/vim-twig.git
+[submodule "vim/bundle/vim-gitgutter"]
+	path = vim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
